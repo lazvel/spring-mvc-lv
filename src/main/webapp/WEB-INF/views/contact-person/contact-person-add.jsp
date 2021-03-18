@@ -19,7 +19,7 @@
 		</style>
 	</head>
 	<body>
-		<h2>Add new Contact Person PAGE</h2>
+		<h2>Add new Contact Person Page</h2>
 		
 		<c:if test="${not empty information}">
 			<div class="info">${information}</div>

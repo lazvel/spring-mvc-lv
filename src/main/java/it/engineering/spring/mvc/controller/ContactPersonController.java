@@ -121,7 +121,7 @@ public class ContactPersonController {
 		ModelAndView modelAndView = new ModelAndView();
 		if (error.hasErrors()) {
 			System.out.println("There is error from validation");
-			if (contactPersonDto.getId() != null) view = "manufacturer/manufacturer-edit";
+			if (contactPersonDto.getId() != null) view = "contact-person/contact-person-edit";
 		} else view = "contact-person/contact-person-confirm";
 		
 		modelAndView.setViewName(view);
@@ -131,11 +131,11 @@ public class ContactPersonController {
 	@PostMapping(path = "/confirm/saveOrUpdate")
 	public ModelAndView saveOrUpdate(@Valid @ModelAttribute("contactPersonDto") ContactPersonDto contactPersonDto, Errors error) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		String view = "manufacturer/manufacturer-add";
+		String view = "contact-person/contact-person-add";
 		
 		if (error.hasErrors()) {
 			System.out.println("There is error from validation");
-			if (contactPersonDto.getId() != null) view = "manufacturer/manufacturer-edit";
+			if (contactPersonDto.getId() != null) view = "contact-person/contact-person-edit";
 		} else {
 			// are we doin save or update ??
 			// update na osnovu id-a

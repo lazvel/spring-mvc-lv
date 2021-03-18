@@ -14,8 +14,10 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 import it.engineering.spring.mvc.formatter.CityDtoFormatter;
+import it.engineering.spring.mvc.formatter.ManufacturerDtoFormatter;
 import it.engineering.spring.mvc.service.CityService;
 import it.engineering.spring.mvc.service.ContactPersonService;
+import it.engineering.spring.mvc.service.ManufacturerService;
 
 
 @Configuration
@@ -25,10 +27,12 @@ import it.engineering.spring.mvc.service.ContactPersonService;
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer{
 	private CityService cityService;
+	private ManufacturerService manufacturerService;
 	
 	@Autowired
-	public MvcConfig(CityService cityService) {
+	public MvcConfig(CityService cityService, ManufacturerService manufacturerService) {
 		this.cityService = cityService;
+		this.manufacturerService = manufacturerService;
 	}
 	
 	// TILES FROM 18.03 SPRING09
@@ -66,5 +70,6 @@ public class MvcConfig implements WebMvcConfigurer{
 		//WebMvcConfigurer.super.addFormatters(registry);
 		System.out.println("================== public void addFormatters(FormatterRegistry registry) ========================");
 		registry.addFormatter(new CityDtoFormatter(cityService));
+		registry.addFormatter(new ManufacturerDtoFormatter(manufacturerService));
 	}
 }
