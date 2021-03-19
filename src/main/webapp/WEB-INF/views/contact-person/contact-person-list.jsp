@@ -15,6 +15,7 @@
 				<tr>
 					<th>Firstname
 					<th>Lastname
+					<th>Manufacturer id
 					<th>Manufacturer name
 					<th>Details
 			</thead>
@@ -23,6 +24,7 @@
 				<tr>
 					<td>${p.firstname}</td>
 					<td>${p.lastname}</td>
+					<td>${p.manufacturerDto.id}</td>
 					<td>${p.manufacturerDto.name}</td>
 					<td><a href="/spring-mvc-lv/contactPerson/details/id/${p.id}">Details</a></td>
 			</c:forEach>

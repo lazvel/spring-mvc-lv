@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.engineering.spring.mvc.converter.impl.ContactPersonConverterDtoEntity;
+import it.engineering.spring.mvc.dao.CityDao;
 import it.engineering.spring.mvc.dao.ContactPersonDao;
 import it.engineering.spring.mvc.dao.ManufacturerDao;
 import it.engineering.spring.mvc.dto.ContactPersonDto;
+import it.engineering.spring.mvc.entity.CityEntity;
 import it.engineering.spring.mvc.entity.ContactPersonEntity;
 import it.engineering.spring.mvc.entity.ManufacturerEntity;
 import it.engineering.spring.mvc.exception.ExistEntityException;
@@ -58,8 +60,22 @@ public class ContactPersonServiceImpl implements ContactPersonService{
 
 	@Override
 	public ContactPersonDto update(ContactPersonDto contactPersonDto) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ContactPersonEntity entity = contactPersonDao.findById(contactPersonDto.getId());
+		if (entity == null) throw new ExistEntityException(contactPersonDto, "Contact Person does not exist.");
+		
+		ManufacturerEntity manufacturerEntity = manufacturerDao.findById(contactPersonDto.getManufacturerDto().getId());
+		if (manufacturerEntity == null) throw new ExistEntityException(manufacturerEntity, "Manufacturer does not exist.");
+		
+		ContactPersonEntity contactPersonEntity = new ContactPersonEntity();
+		contactPersonEntity.setId(contactPersonDto.getId());
+		contactPersonEntity.setFirstname(contactPersonDto.getFirstname());
+		contactPersonEntity.setLastname(contactPersonDto.getLastname());
+		contactPersonEntity.setManufacturerEntity(manufacturerEntity);
+		
+		contactPersonEntity = contactPersonDao.update(contactPersonEntity);
+		
+		
+		return cpcde.toDto(contactPersonEntity);
 	}
 
 }

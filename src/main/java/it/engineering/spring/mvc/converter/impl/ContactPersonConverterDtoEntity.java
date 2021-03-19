@@ -9,21 +9,21 @@ import it.engineering.spring.mvc.entity.ContactPersonEntity;
 
 @Component
 public class ContactPersonConverterDtoEntity implements ConverterDtoEntity<ContactPersonDto, ContactPersonEntity>{
-	private ManufacturerConverterDtoEntity mcde;
+	private ManufacturerConverterDtoEntity manufacturerConverterDtoEntity;
 	
 	@Autowired
-	public ContactPersonConverterDtoEntity(ManufacturerConverterDtoEntity mcde) {
-		this.mcde = mcde;
+	public ContactPersonConverterDtoEntity(ManufacturerConverterDtoEntity manufacturerConverterDtoEntity) {
+		this.manufacturerConverterDtoEntity = manufacturerConverterDtoEntity;
 	}
 	
 	@Override
 	public ContactPersonDto toDto(ContactPersonEntity e) {
-		return new ContactPersonDto(e.getId(), e.getFirstname(), e.getLastname(), mcde.toDto(e.getManufacturerEntity()));
+		return new ContactPersonDto(e.getId(), e.getFirstname(), e.getLastname(), manufacturerConverterDtoEntity.toDto(e.getManufacturerEntity()));
 	}
 
 	@Override
 	public ContactPersonEntity toEntity(ContactPersonDto dto) {
-		return new ContactPersonEntity(dto.getId(), dto.getFirstname(), dto.getLastname(), mcde.toEntity(dto.getManufacturerDto()));
+		return new ContactPersonEntity(dto.getId(), dto.getFirstname(), dto.getLastname(), manufacturerConverterDtoEntity.toEntity(dto.getManufacturerDto()));
 	}
 
 }

@@ -43,7 +43,7 @@ public class ContactPersonController {
 	private ManufacturerService manufacturerService;
 	
 	@Autowired
-	public ContactPersonController(ContactPersonService contactPersonService, ManufacturerService manufacturerService) {
+	public ContactPersonController(ContactPersonService contactPersonService,ManufacturerService manufacturerService) {
 		this.contactPersonService = contactPersonService;
 		this.manufacturerService = manufacturerService;
 	}

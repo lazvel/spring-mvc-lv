@@ -18,7 +18,7 @@ public class JpaContactPersonDaoImpl implements ContactPersonDao{
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@Override
+	@Override 
 	public void save(ContactPersonEntity contactPersonEntity) throws Exception {
 		entityManager.persist(contactPersonEntity);
 	}

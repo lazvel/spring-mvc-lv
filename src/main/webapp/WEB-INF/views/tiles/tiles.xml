@@ -71,4 +71,20 @@
 		<put-attribute name="body" value="/WEB-INF/views/contact-person/contact-person-add.jsp"></put-attribute>
 		<put-attribute name="footer" value="/WEB-INF/views/tiles/template/footerOne.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="contact-person/contact-person-confirm" extends="base-definition">
+		<put-attribute name="title" value="Manufacturer - confirm"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/tiles/template/headerOne.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/tiles/template/menuOne.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/contact-person/contact-person-confirm.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/template/footerOne.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="contact-person/contact-person-edit" extends="base-definition">
+		<put-attribute name="title" value="Manufacturer - edit"></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/views/tiles/template/headerOne.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/tiles/template/menuOne.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/contact-person/contact-person-edit.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/template/footerOne.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

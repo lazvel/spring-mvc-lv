@@ -40,11 +40,15 @@
 			<div><form:input type="text" path="lastname" readonly="readonly" size="60"/></div>
 			<div><form:errors path="lastname" /></div>
 			
-			<div>Manufacturer name:</div>
+			<div>Manufacturer id:</div>
+			<div>
+				<form:input type="text" path="manufacturerDto.id" readonly="readonly" size="60"/>
+			</div>
+			
+			<div>City name:</div>
 			<div>
 				<form:input type="text" path="manufacturerDto.name" readonly="readonly" size="60"/>
 			</div>
-			
 			<div><form:errors path="manufacturerDto" /></div>
 			
 			<div>
