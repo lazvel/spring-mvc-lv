@@ -41,11 +41,13 @@ import it.engineering.spring.mvc.validator.ManufacturerValidator;
 public class ContactPersonController {
 	private ContactPersonService contactPersonService;
 	private ManufacturerService manufacturerService;
+	private CityService cityService;
 	
 	@Autowired
-	public ContactPersonController(ContactPersonService contactPersonService,ManufacturerService manufacturerService) {
+	public ContactPersonController(ContactPersonService contactPersonService, ManufacturerService manufacturerService, CityService cityService) {
 		this.contactPersonService = contactPersonService;
 		this.manufacturerService = manufacturerService;
+		this.cityService = cityService;
 	}
 	
 	@GetMapping(path = "/list")
@@ -152,10 +154,10 @@ public class ContactPersonController {
 		return modelAndView;
 	}
 	
-//	@ModelAttribute(name = "cities") // na svaki poziv izvrsice se ova metoda da popuni
-//	private List<CityDto> getCities() throws Exception {
-//		return cityService.getAll();
-//	}
+	@ModelAttribute(name = "cities") // na svaki poziv izvrsice se ova metoda da popuni
+	private List<CityDto> getCities() throws Exception {
+		return cityService.getAll();
+	}
 
 	@ModelAttribute(name = "manufacturers") // na svaki poziv izvrsice se ova metoda da popuni
 	private List<ManufacturerDto> getManufacturers() throws Exception {

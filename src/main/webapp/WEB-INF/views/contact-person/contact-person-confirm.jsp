@@ -31,6 +31,7 @@
 		
 		<form:form action="/spring-mvc-lv/contactPerson/confirm/saveOrUpdate" method="POST" modelAttribute="contactPersonDto">
 			<form:hidden path="id"/>
+			<form:hidden path="manufacturerDto.cityDto.number"/>
 			
 			<div>Firstname:</div>
 			<div><form:input type="text" path="firstname" readonly="readonly" size="60"/></div>
@@ -45,7 +46,7 @@
 				<form:input type="text" path="manufacturerDto.id" readonly="readonly" size="60"/>
 			</div>
 			
-			<div>City name:</div>
+			<div>Manufacturer name:</div>
 			<div>
 				<form:input type="text" path="manufacturerDto.name" readonly="readonly" size="60"/>
 			</div>
